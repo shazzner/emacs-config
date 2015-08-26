@@ -14,9 +14,9 @@
 (setq js-indent-level 2)
 (setq-default indent-tabs-mode nil)
 
-;disable backup
+                                        ;disable backup
 (setq backup-inhibited t)
-;disable auto save
+                                        ;disable auto save
 (setq auto-save-default nil)
 
 (tool-bar-mode -1)
@@ -26,19 +26,19 @@
 (enable-theme 'dark-blue2)
 
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                           ("marmalade" . "http://marmalade-repo.org/packages/")
-                           ("melpa" . "http://melpa.milkbox.net/packages/")))
-;(rvm-use-default)
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+                                        ;(rvm-use-default)
 (windmove-default-keybindings 'meta)
 (global-set-key (kbd "C-c <left>")  'windmove-left)
-    (global-set-key (kbd "C-c <right>") 'windmove-right)
-    (global-set-key (kbd "C-c <up>")    'windmove-up)
-    (global-set-key (kbd "C-c <down>")  'windmove-down)
+(global-set-key (kbd "C-c <right>") 'windmove-right)
+(global-set-key (kbd "C-c <up>")    'windmove-up)
+(global-set-key (kbd "C-c <down>")  'windmove-down)
 (setq framemove-hook-into-windmove t)
 
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.scss$" . web-mode))
-;(autopair-global-mode)
+                                        ;(autopair-global-mode)
 
 ;; (defun sass-indent-p ()
 ;;   "Return t if the current line can have lines nested beneath it."
@@ -57,3 +57,24 @@
 (setq-default indent-tabs-mode nil)
 (setq web-mode-code-indent-offset 4)
 (setq web-mode-indent-style 4)
+
+;; must install wmctrl
+(defun switch-full-screen ()
+  (interactive)
+  (shell-command "wmctrl -r :ACTIVE: -btoggle,maximized_vert,maximized_horz"))
+
+(global-set-key [f11] 'switch-full-screen)
+
+(defun delete-word (arg)
+  "Delete characters forward until encountering the end of a word.
+With argument, do this that many times."
+  (interactive "p")
+  (delete-region (point) (progn (forward-word arg) (point))))
+
+(defun backward-delete-word (arg)
+  "Delete characters backward until encountering the end of a word.
+With argument, do this that many times."
+  (interactive "p")
+  (delete-word (- arg)))
+
+(global-set-key (read-kbd-macro "<C-backspace>") 'backward-delete-word)
