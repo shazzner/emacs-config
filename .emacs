@@ -78,3 +78,5 @@ With argument, do this that many times."
   (delete-word (- arg)))
 
 (global-set-key (read-kbd-macro "<C-backspace>") 'backward-delete-word)
+
+(add-hook 'text-mode-hook 'flyspell-mode)
