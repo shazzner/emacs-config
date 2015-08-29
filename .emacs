@@ -13,6 +13,7 @@
 (setq c-basic-offset 4)
 (setq js-indent-level 2)
 (setq-default indent-tabs-mode nil)
+(set-default 'truncate-lines t)
 
                                         ;disable backup
 (setq backup-inhibited t)
@@ -80,3 +81,6 @@ With argument, do this that many times."
 (global-set-key (read-kbd-macro "<C-backspace>") 'backward-delete-word)
 
 (add-hook 'text-mode-hook 'flyspell-mode)
+
+; Magit
+(global-set-key (kbd "C-x g") 'magit-status)
