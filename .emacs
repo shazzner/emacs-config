@@ -7,7 +7,7 @@
 ;; General behavior config
 (setq ring-bell-function 'ignore)
 (delete-selection-mode 1)
-(setq default-tab-width 4)
+(setq default-tab-width 2)
 
 (setq sgml-basic-offset 2)
 (setq c-basic-offset 4)
@@ -56,9 +56,16 @@
 (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
+
+; Using django for now
+(setq web-mode-engines-alist
+      '(("django"    . "\\.html\\'")
+        ("blade"  . "\\.blade\\."))
+)
+
 (setq-default indent-tabs-mode nil)
-(setq web-mode-code-indent-offset 4)
-(setq web-mode-indent-style 4)
+(setq web-mode-code-indent-offset 2)
+(setq web-mode-indent-style 2)
 
 ;; must install wmctrl
 (defun switch-full-screen ()
@@ -85,3 +92,22 @@ With argument, do this that many times."
 
 ; Magit
 (global-set-key (kbd "C-x g") 'magit-status)
+
+; disable the touchpad whilst in emacs
+(dolist (k '([mouse-1] [down-mouse-1] [drag-mouse-1] [double-mouse-1] [triple-mouse-1]  
+             [mouse-2] [down-mouse-2] [drag-mouse-2] [double-mouse-2] [triple-mouse-2]
+             [mouse-3] [down-mouse-3] [drag-mouse-3] [double-mouse-3] [triple-mouse-3]
+             [mouse-4] [down-mouse-4] [drag-mouse-4] [double-mouse-4] [triple-mouse-4]
+             [mouse-5] [down-mouse-5] [drag-mouse-5] [double-mouse-5] [triple-mouse-5]))
+  (global-unset-key k))
+
+; (setq dired-dwim-target t)
+(setq tramp-default-method "sftp")
+
+; For SCSS mode
+(setq scss-sass-options '("-t" "compressed"))
+(setq tramp-verbose 9)
+
+; Trying out Ace Jump
+(require 'ace-jump-mode)
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
