@@ -23,6 +23,7 @@
 
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+(menu-bar-mode -1)
 
 (load-theme 'dark-blue2 t t)
 (enable-theme 'dark-blue2)
