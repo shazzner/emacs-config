@@ -112,3 +112,6 @@ With argument, do this that many times."
 ; Trying out Ace Jump
 (require 'ace-jump-mode)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+
+(require 'magit)
+(global-set-key (kbd "C-x g") 'magit-status)
