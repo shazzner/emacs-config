@@ -13,7 +13,9 @@
 (setq c-basic-offset 4)
 (setq js-indent-level 2)
 (setq-default indent-tabs-mode nil)
-(set-default 'truncate-lines nil)
+(setq truncate-lines 'nil)
+(setq org-startup-truncated nil) ; this worked for org-mode!
+(setq org-startup-indented t)
 (setq truncate-partial-width-windows nil)
 
                                         ;disable backup
@@ -51,6 +53,11 @@
 ;;           if (looking-at opener) return nil
 ;;           finally return t)))
 (put 'downcase-region 'disabled nil)
+
+; Let's kill back to _ instead of whole word
+(modify-syntax-entry ?_ "_")
+(defun change-major-mode-hook ()
+  (modify-syntax-entry ?_ "_"))
 
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
@@ -115,3 +122,6 @@ With argument, do this that many times."
 
 (require 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
+
+(require 'auth-source)             ;; probably not necessary
+(customize-variable 'auth-sources) ;; optional, do it once
