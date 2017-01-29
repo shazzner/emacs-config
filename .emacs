@@ -99,6 +99,7 @@ With argument, do this that many times."
 (add-hook 'text-mode-hook 'flyspell-mode)
 
 ; Magit
+(require 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
 
 ; disable the touchpad whilst in emacs
@@ -120,8 +121,6 @@ With argument, do this that many times."
 (require 'ace-jump-mode)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
-(require 'magit)
-(global-set-key (kbd "C-x g") 'magit-status)
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
 
-(require 'auth-source)             ;; probably not necessary
-(customize-variable 'auth-sources) ;; optional, do it once
