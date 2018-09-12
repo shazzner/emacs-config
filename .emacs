@@ -221,7 +221,7 @@ With argument, do this that many times."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (rjsx-mode yaml-mode dockerfile-mode toml toml-mode rust-mode rainbow-mode lorem-ipsum php-mode vagrant-tramp elpy company web-mode typescript tide neotree nav magit ace-jump-mode))))
+    (json-mode prettier-js markdown-mode rjsx-mode yaml-mode dockerfile-mode toml toml-mode rust-mode rainbow-mode lorem-ipsum php-mode vagrant-tramp elpy company web-mode typescript tide neotree nav magit ace-jump-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
