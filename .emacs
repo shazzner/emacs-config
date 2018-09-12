@@ -204,6 +204,16 @@ With argument, do this that many times."
 
 (add-to-list 'auto-mode-alist '("src\\/.*\\.js\\'" . rjsx-mode))
 
+(add-hook 'eshell-preoutput-filter-functions
+          'ansi-color-filter-apply)
+
+(add-hook 'js2-mode-hook 'prettier-js-mode)
+(add-hook 'web-mode-hook 'prettier-js-mode)
+(add-hook 'json-mode-hook 'prettier-js-mode)
+
+(add-to-list 'auto-mode-alist '("\\.launch$" . xml-mode))
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
